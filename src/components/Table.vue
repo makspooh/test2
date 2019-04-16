@@ -3,7 +3,7 @@
   <v-layout>
     <v-flex>
       <v-data-table
-        :items="crypto"
+        :items="sortPrices"
         class="elevation-1"
         hide-actions
         hide-headers
@@ -33,7 +33,7 @@ import axios from 'axios'
     },
     computed: {
       sortPrices() {
-        return crypto.sort((a, b) => a.RAW.USD.PRICE - b.RAW.USD.PRICE)
+        return [...this.crypto].sort((a, b) => b.RAW.USD.PRICE - a.RAW.USD.PRICE)
       }
     },
     mounted() {
@@ -48,7 +48,3 @@ import axios from 'axios'
     }
   }
 </script>
-
-<style>
-
-</style>
